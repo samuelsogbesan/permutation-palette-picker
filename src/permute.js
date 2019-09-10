@@ -26,10 +26,7 @@
      * @param space The characters left to add
      */
 
-    var s = "";
-    var stack = [];
-    var limit =0 ;
-    //var limit = p(s.length,s.length);
+
 
     function permute(s,space){
         
@@ -58,10 +55,17 @@
         }
     }
 
-    function start(string){
+    function start(){
+        var temp ="";
+        for(var i =0; i < combobox.length; i++){
+            temp += combobox[i].value;
+        }
+        //console.log("temp:" +temp);
+
         stack = [];
-        limit = p(s.length,s.length);
-        permute("",string.split(""));
+        limit = p(temp.length,temp.length);
+        //console.log(limit);
+        permute("",temp.split(""));
         print();
     }
 
@@ -71,7 +75,18 @@
         }
     }
 
-    //const container = document.getElementById("container");
+    
+
+    const t = document.getElementById("goButton");
+    const combobox = document.getElementsByClassName("box");
+    var s = "";
+    var stack = [];
+    var limit =0;
+    //var limit = p(s.length,s.length);
+
+    t.addEventListener("mousedown",function(e){
+        start();
+    })
 
     //permute("",s.split(""));
 
