@@ -24,6 +24,7 @@ nav span{
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
     justify-content: space-around;
 
 }
@@ -37,7 +38,7 @@ nav span{
     justify-content: center;
     text-align:center;
     background-color:rgba(144,144,144,0.6);
-    filter: drop-shadow(0 0 0.2rem white);
+
     margin: 0px 0;
     transition:0.1s ease-in-out;
 }

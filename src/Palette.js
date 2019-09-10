@@ -13,6 +13,7 @@ class Swatch extends React.Component {
             x="white";
         }
         this.state = { liked: false, colour: x};
+        //const [liked,setLiked] = useState(false);
         
     }
 
@@ -40,14 +41,14 @@ class Palette extends React.Component {
 
 
     render() {
+        var swatches = []
 
+        for(var i =0; i < 120; i++){
+            swatches.push(<Swatch key = {i} colour="blue"/>);
+        }
         return (
                 <div className="row row-eq-height myrow">
-                    <Swatch colour="rgb(249, 220, 92)"/>
-                    <Swatch colour="rgb(237, 37, 78)"/>
-                    <Swatch colour="rgb(1, 25, 54)"/>
-                    <Swatch colour="rgb(243, 249, 210)"/>
-                    <Swatch colour="rgb(249, 220, 92)"/>
+                    {swatches}
                 </div>
         
         );
