@@ -56,32 +56,6 @@
         }
     }
 
-    function permute2(s,space){
-        
-        //Stops further calculation to reduce wasted space
-        if(stack.length > limit){
-            return;
-        }
-
-        //If the space has been exhausted
-        if((space.length==3)){
-            //console.log(s);
-            stack.push(s);
-            if(stack.length == limit) {
-                //console.log(s);
-            }            
-        }
-        else{
-
-            //For every character left in the space add character to s, remove character from space and call permute
-            for(var i=0; i< space.length; i++) {
-                permute2(s.concat(space[i]),
-                    //((space.slice(0,i).toString()) + (space.slice(i+1, space.length).toString())).split("")
-                    (space.slice(0,i).concat((space.slice(i+1, space.length))))
-                );
-            }
-        }
-    }
     function start(){
         var temp ="";
         for(var i =0; i < combobox.length; i++){
