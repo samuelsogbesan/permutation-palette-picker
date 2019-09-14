@@ -18,28 +18,46 @@
 			<span style="font-size:0.5em;">~by Samuel Sogbesan</span>
 		</div>
 		<div class="combo-box d-flex flex-row align-items-center justify-content-center">
-			<input class="box" type="text" class="input-box" placeholder="0">
-			<input class="box" type="text" class="input-box" placeholder="0">
-			<input class="box" type="text" class="input-box" placeholder="0">
-			<input id="goButton" class="" type="button" value="GO">
+			<input id="input-box" class="box" type="number" placeholder="0-222">
+			<!---<input id="goButton" class="" type="button" value="GO">-->
 		</div>
-		<nav class="nav-options">
+		<div id="nav-options" class="container-fluid nav-options">
 			<span>Options</span>
-			<ul class="nav-options-list">
-				<li><input id="option-1" type="checkbox"><span>Show RGB</span></li>
-				<li><input id="option-2" type="checkbox"><span>Show Hex</span></li>
-			</ul>
-		</nav>
+			<div class="row my-row">
+				<div class="col-4 selectable my-col"><span>RGB</span></div>
+				<div class="col-4 selectable my-col"><span>HEX</span></div>
+				<div class="col-4 selectable my-col"><span>DARK</span></div>
+			</div>
+			<div class="row my-row">
+				<div class="col-4 selectable my-col"><span>PI</span></div>
+				<div id="option-4" class="col-4 selectable my-col"><span>PROFILE</span></div>
+				<div class="col-4 selectable my-col"><span>RGB</span></div>
+			</div>
+		</div>
 	</div>
 
 	<div id="notificationBar" class="state-0">
-
 		Copied!
 	</div>
-	<div id="test-container" class="container-fluid mycontainer">
+	<div class="main-container">
+		<div id="test-container" class="container-fluid mycontainer">
 
+		</div>
+
+		<div id="info-container">
+			<!--<span id="info-title">Permutation Profile</span>--->
+			<select id="info-combo">
+				<option value="0">General</option>
+				<option value="1">Selected Permutation</option>
+			</select>
+
+			<div id="info-container-frame">
+				<canvas id="canvas">
+
+				</canvas>
+			</div>
+		</div>
 	</div>
-
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -55,6 +73,9 @@
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 	<script type="text/babel" src="Palette.js"></script>
+	<script src="./dependencies/PieChartLib.js"></script>
+	<script src="./dependencies/optionMenuLib.js"></script>
+
 </body>
 
 </html>

@@ -25,6 +25,7 @@ class Swatch extends React.Component {
         swatch.setSelectionRange(0, 99999);
         document.execCommand("copy");
         */
+        document.getElementById("info-container-frame").innerText="hello";
         document.getElementById("notificationBar").innerText = "copied " + this.state.colour + " to clipboard!";
         document.getElementById("notificationBar").className = "state-1";
         document.getElementById("notificationBar").style.backgroundColor = this.state.colour;
@@ -33,7 +34,7 @@ class Swatch extends React.Component {
     render() {
         var swatch = <div className="col palette-square d-flex flex-col align-items-center justify-content-center" style={{ backgroundColor: this.state.colour, transition: "0.5s" }}>
             <p className="palette-title" onClick={this.handler.bind(this)}>
-                {this.state.colour}
+                <span className="palette-subtitle">{this.state.colour}</span>
             </p>
         </div>
 
@@ -51,9 +52,15 @@ class Palette extends React.Component {
         var p = [];
         this.state = { colours: p };
 
-        t = document.getElementById("goButton");
-        combobox = document.getElementsByClassName("box");
-        t.addEventListener("mousedown", this.handler.bind(this));
+
+
+        var t = document.getElementById("input-box");
+        //t.addEventListener("")
+        //t.addEventListener("")
+        if (t != null) {
+            t.addEventListener("keyup", this.handler.bind(this));
+        }
+
 
         this.generate.bind(this);
         this.swatches = [];
@@ -66,7 +73,10 @@ class Palette extends React.Component {
             document.getElementById("test-container").style.justifyContent = "center";
 
             return (
-                <span>Enter 3 numbers into the box above to generate a colour table here!</span>
+                <div>
+                    <span>Enter 3 numbers into the box above to generate a colour table here!</span>
+                    <span>(Resize me in the bottom corner)</span>
+                </div>
             )
         } else {
             document.getElementById("test-container").style.alignItems = null;
@@ -88,7 +98,9 @@ class Palette extends React.Component {
         this.setState({ colours: [] });
 
         var t = start();
-
+        if(t==null){
+            return;
+        }
         var sortedRgbArr = t.map(function (c, i) {
             // Convert to HSL and keep track of original indices
             return { color: rgbToHsl(c), index: i };
@@ -176,8 +188,13 @@ function permute(s, space, r) {
     }
 }
 
+/**
+ * Generates the permutations
+ * @returns array of all permutations
+ */
 function start() {
     var temp = "";
+    var combobox = document.getElementsByClassName("box");
     for (var i = 0; i < combobox.length; i++) {
         temp += combobox[i].value;
     }
@@ -187,38 +204,29 @@ function start() {
         document.getElementById("notificationBar").innerText = "'" + temp + "' is not valid. Fill in the combo-box with 3 numbers between 0 and 2 (to evaluate to a number between 0-222)";
         return null;
     }
-    //console.log("temp:" +temp);
 
     stack = [];
     limit = p(temp.length, temp.length);
 
-    permute("", temp.split(""), 0);
+    permute("", temp.split(""), 0); //Produces array of permutations of the input string (array of XXXs)
 
     var l = stack;
     stack = [];
     limit = p(l.length, 3);
-    permute([], l, 3);
-
-    //console.log(stack);
+    permute([], l, 3);  //Produces array of permutations of the input string's permutations (arrays of [XXX,XXX,XXX]s)
 
     return stack;
 }
 
+/**
+ * 
+ * @param {*} iter outputs all the children of an array in order
+ */
 function print(iter) {
     for (var i = 0; i < iter.length; i++) {
         console.log(iter[i]);
     }
 }
-
-
-
-var t;
-var combobox;
-var s = "";
-var stack = [];
-var limit = 0;
-//var limit = p(s.length,s.length);
-
 
 function rgbToHsl(c) {
     var r = c[0] / 255, g = c[1] / 255, b = c[2] / 255;
@@ -251,6 +259,8 @@ HOW TO START SERVER:
 
 
 
+var stack = []; //stack containing all the colour permutations
+var limit = 0; //max number of permutations
 
 const domContainer = document.querySelector('#test-container');
 ReactDOM.render(e(Palette), domContainer);
