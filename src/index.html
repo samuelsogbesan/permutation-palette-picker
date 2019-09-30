@@ -14,8 +14,9 @@
 
 	<div class="heading">
 		<div class="title">
-			<span>A Permutations Visualiser</span>
+			<span>RGB Permutation Visualiser</span>
 			<span style="font-size:0.5em;">~by Samuel Sogbesan</span>
+			<a style="font-size:0.5em;" href="www.github.com/samuelsogbesan">GITHUB</a>
 		</div>
 		<div class="combo-box d-flex flex-row align-items-center justify-content-center">
 			<input id="input-box" class="box" type="number" placeholder="0-222">
@@ -52,9 +53,14 @@
 			</select>
 
 			<div id="info-container-frame">
-				<canvas id="canvas">
+				<div id="info-container-selected">
+					<span id="info-container-rgb">RGB</span>
+					<span id="info-container-hex">HEX</span>
+					<div id="info-colour-block" class="colour-block">
+						
+					</div>
+				</div>
 
-				</canvas>
 			</div>
 		</div>
 	</div>

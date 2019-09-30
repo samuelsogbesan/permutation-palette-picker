@@ -25,7 +25,9 @@ class Swatch extends React.Component {
         swatch.setSelectionRange(0, 99999);
         document.execCommand("copy");
         */
-        document.getElementById("info-container-frame").innerText="hello";
+        document.getElementById("info-container-rgb").innerText = this.state.colour;
+        document.getElementById("info-colour-block").style.backgroundColor = this.state.colour;
+        
         document.getElementById("notificationBar").innerText = "copied " + this.state.colour + " to clipboard!";
         document.getElementById("notificationBar").className = "state-1";
         document.getElementById("notificationBar").style.backgroundColor = this.state.colour;
@@ -55,8 +57,6 @@ class Palette extends React.Component {
 
 
         var t = document.getElementById("input-box");
-        //t.addEventListener("")
-        //t.addEventListener("")
         if (t != null) {
             t.addEventListener("keyup", this.handler.bind(this));
         }

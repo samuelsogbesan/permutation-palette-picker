@@ -192,6 +192,7 @@ body{
 }
 
 #info-combo{
+    
     text-align: center;
     font-weight: bold;
     border:none;
@@ -200,6 +201,7 @@ body{
     opacity: 0.9;
     background-color:rgba(0, 38, 255, 0.2);
     color:white;
+    
 }
 
 #info-title{
@@ -208,18 +210,38 @@ body{
 
 
 #info-container-frame{
-    min-width: 50%;
-    min-width: 50%;
-    max-width: 50%;
-    max-height: 50%;
+    flex:1;
 
-    outline:1px white solid;
+
     
     display: flex;
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
+}
+
+#info-container-selected{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    transition:0.5s ease-in-out;
+}
+
+#info-container-selected > span{
+    font-size:1.5em;
+}
+
+#info-container-rgb,info-container-hex{
+    transition: inherit;
+}
+
+#info-colour-block{
+    background-color:white;
+    min-width:100%;
+    min-height:50%;
+    transition: inherit;
 }
 
 .myrow{
