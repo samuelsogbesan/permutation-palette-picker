@@ -44,9 +44,19 @@ class Swatch extends React.Component {
         document.getElementById("info-colour-block-2").style.backgroundColor = newRGB;
         
         
-        document.getElementById("notificationBar").innerText = "copied " + this.state.colour + " to clipboard!";
-        document.getElementById("notificationBar").className = "state-1";
-        document.getElementById("notificationBar").style.backgroundColor = this.state.colour;
+        navigator.clipboard.writeText(this.state.colour);
+        //document.getElementsByTagName("notiText");
+        //console.log(notiBarArea.parentElement);
+        
+        //notiBarArea.focus();
+        //#notiBarArea.select();
+        //document.execCommand("copy");
+        
+
+        var notiBar = document.getElementById("notificationBar");
+        notiBar.innerText = "copied " + this.state.colour + " to clipboard!";
+        notiBar.className = "state-1";
+        notiBar.style.backgroundColor = this.state.colour;
 
     }
     render() {
