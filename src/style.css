@@ -184,6 +184,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    display:none;
 
     color:white;
     padding:10px;
@@ -237,7 +238,7 @@ body{
     transition: inherit;
 }
 
-#info-colour-block{
+.colour-block{
     background-color:white;
     min-width:100%;
     min-height:50%;

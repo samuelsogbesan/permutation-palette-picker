@@ -27,10 +27,30 @@ class Swatch extends React.Component {
         */
         document.getElementById("info-container-rgb").innerText = this.state.colour;
         document.getElementById("info-colour-block").style.backgroundColor = this.state.colour;
+        var currentRGB = this.state.colour.substring(4,this.state.colour.length-1).split(",");
+        for(var i = 0; i < currentRGB.length ; i ++){
+            currentRGB[i] = 255- currentRGB[i];
+        }
+        var newRGB = "rgb(";
+        for(var i = 0;i < currentRGB.length ; i++){
+            newRGB+=currentRGB[i];
+            if(i < currentRGB.length-1){
+                newRGB +=",";
+            }
+            
+        }
+        newRGB +=")";
+        console.log("newRGB:" +newRGB);
+        document.getElementById("info-colour-block-2").style.backgroundColor = newRGB;
         
-        document.getElementById("notificationBar").innerText = "copied " + this.state.colour + " to clipboard!";
-        document.getElementById("notificationBar").className = "state-1";
-        document.getElementById("notificationBar").style.backgroundColor = this.state.colour;
+        
+        navigator.clipboard.writeText(this.state.colour);
+        
+
+        var notiBar = document.getElementById("notificationBar");
+        notiBar.innerText = "copied " + this.state.colour + " to clipboard!";
+        notiBar.className = "state-1";
+        notiBar.style.backgroundColor = this.state.colour;
 
     }
     render() {
@@ -71,9 +91,8 @@ class Palette extends React.Component {
         if ((this.state.colours == 0) || (this.state.colours == null)) {
             document.getElementById("test-container").style.alignItems = "center";
             document.getElementById("test-container").style.justifyContent = "center";
-
             return (
-                <div>
+                <div style={{color:"white",display:"flex",flexDirection:"column"}}>
                     <span>Enter 3 numbers into the box above to generate a colour table here!</span>
                     <span>(Resize me in the bottom corner)</span>
                 </div>
