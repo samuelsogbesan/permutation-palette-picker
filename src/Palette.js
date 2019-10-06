@@ -45,12 +45,6 @@ class Swatch extends React.Component {
         
         
         navigator.clipboard.writeText(this.state.colour);
-        //document.getElementsByTagName("notiText");
-        //console.log(notiBarArea.parentElement);
-        
-        //notiBarArea.focus();
-        //#notiBarArea.select();
-        //document.execCommand("copy");
         
 
         var notiBar = document.getElementById("notificationBar");
@@ -97,7 +91,6 @@ class Palette extends React.Component {
         if ((this.state.colours == 0) || (this.state.colours == null)) {
             document.getElementById("test-container").style.alignItems = "center";
             document.getElementById("test-container").style.justifyContent = "center";
-
             return (
                 <div style={{color:"white",display:"flex",flexDirection:"column"}}>
                     <span>Enter 3 numbers into the box above to generate a colour table here!</span>
