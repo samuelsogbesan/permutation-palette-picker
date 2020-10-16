@@ -255,6 +255,7 @@ info-container-hex {
 }
 
 .box {
+    border-radius: 0.5rem;
     height: 50px;
     width: 100px;
     text-align: center;
