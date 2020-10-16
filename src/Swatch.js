@@ -9,16 +9,13 @@ class Swatch extends React.Component {
 
 
     render() {
-        var el = <div className="col palette-square d-flex flex-col align-items-center justify-content-center" style={{ backgroundColor: colour, transition:"0.5s", opacity:"0" }}>
-            <p class="palette-title">
-                <span>RGB</span>
-                <span>201,012,210</span>
-            </p>
-        </div>
-
-
         return (
-            el
+            <div className="col palette-square d-flex flex-col align-items-center justify-content-center" style={{ backgroundColor: colour, transition:"0.5s", opacity:"0" }}>
+                <p class="palette-title">
+                    <span>RGB</span>
+                    <span>201,012,210</span>
+                </p>
+            </div>
         );
     }
 }
