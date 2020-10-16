@@ -1,6 +1,5 @@
 'use strict';
 
-
 const e = React.createElement;
 
 class Swatch extends React.Component {
@@ -14,7 +13,6 @@ class Swatch extends React.Component {
         
         x = "rgb(" + x + ")";
         this.state = { colour: x };
-
 
     }
 
@@ -43,10 +41,8 @@ class Swatch extends React.Component {
         console.log("newRGB:" +newRGB);
         document.getElementById("info-colour-block-2").style.backgroundColor = newRGB;
         
-        
         navigator.clipboard.writeText(this.state.colour);
         
-
         var notiBar = document.getElementById("notificationBar");
         notiBar.innerText = "copied " + this.state.colour + " to clipboard!";
         notiBar.className = "state-1";
