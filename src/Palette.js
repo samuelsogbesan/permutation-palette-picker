@@ -11,7 +11,7 @@ class Swatch extends React.Component {
         if (x == undefined) {
             x = "white";
         }
-
+        
         x = "rgb(" + x + ")";
         this.state = { colour: x };
 
@@ -54,15 +54,12 @@ class Swatch extends React.Component {
 
     }
     render() {
-        var swatch = <div className="col palette-square d-flex flex-col align-items-center justify-content-center" style={{ backgroundColor: this.state.colour, transition: "0.5s" }}>
-            <p className="palette-title" onClick={this.handler.bind(this)}>
-                <span className="palette-subtitle">{this.state.colour}</span>
-            </p>
-        </div>
-
-
         return (
-            swatch
+            <div className="col palette-square d-flex flex-col align-items-center justify-content-center" style={{ backgroundColor: this.state.colour, transition: "0.5s" }}>
+                <p className="palette-title" onClick={this.handler.bind(this)}>
+                    <span className="palette-subtitle">{this.state.colour}</span>
+                </p>
+            </div>
         );
     }
 }
