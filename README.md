@@ -7,7 +7,7 @@ The front-end was designed with custom CSS and made dynamic using React
 
 To discuss or chat, please contact me!
 
-The app can be run off a localhost. I used "http-server", installed via "npm install http-server".
+The app can be run off a localhost. I used "parcel" to build and run the app, installed via <code>npm install parcel-bundler</code>.
 
 Linkedin: https://www.linkedin.com/in/samuel-sogbesan/
 Email: juwonsogbesan@gmail.com / ss3222@bath.ac.uk
