@@ -1,0 +1,25 @@
+{
+  "name": "permutation-palette-picker",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelsogbesan/permutation-palette-picker.git"
+  },
+  "author": "Samuel Sogbesan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelsogbesan/permutation-palette-picker/issues"
+  },
+  "homepage": "https://github.com/samuelsogbesan/permutation-palette-picker#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "v8": "^0.1.0"
+  }
+}
